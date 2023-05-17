@@ -9,7 +9,7 @@ public class QuestionAsker {
   public QuestionAsker(){
     scanner = new Scanner(System.in);
     addQuestion("Would a superclass be a parent or a child", 3);
-    addQuestion("What is 200 to the power of 2", 0);
+    addQuestion("What is 200 to the power of 2", 4);
     addQuestion(null, 0, null);
   }
   
@@ -17,7 +17,7 @@ public class QuestionAsker {
         
   }
   private void addQuestion(String question, int diffculty){
-      
+      questions.add(new Question(question,diffculty));
   }
   private void addQuestion(String question, int diffculty, String catagory){
       
