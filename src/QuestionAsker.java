@@ -4,42 +4,39 @@ import java.util.*;
 public class QuestionAsker {
   private Scanner scanner;
   private ArrayList<Question> questions = new ArrayList<Question>();
-  private ArrayList<Integer> difficulties = new ArrayList<Integer>();
+  
   
   public QuestionAsker(){
     scanner = new Scanner(System.in);
-    addQuestion("Would a superclass be a parent or a child", 3);
-    addQuestion("What is 200 to the power of 2", 4);
+    addQuestion("Would a superclass be a parent or a child", 3, "Coding");
+    addQuestion("What is 200 to the power of 2", 4,"Math");
     addQuestion(null, 0, null);
+    sort();
   }
   
   public void question(int difficulty){
         
   }
-  private void addQuestion(String question, int diffculty){
+  public void addQuestion(String question, int diffculty){
       questions.add(new Question(question,diffculty));
   }
-  private void addQuestion(String question, int diffculty, String catagory){
-      
+  public void addQuestion(String question, int diffculty, String catagory){
+      questions.add(new Question(question,diffculty,catagory));
   }
-  public void sort(){
+  private void sort(){
     
-    for(int i = 0; i < difficulties.size(); i++){
+    for(int i = 0; i < questions.size(); i++){
       int index = i;
-      for(int j = i + 1; j < difficulties.size(); j++){
+      for(int j = i + 1; j < questions.size(); j++){
         if(difficulties.get(index) > difficulties.get(j)){
           index = j;
         }
       }
       String stringTemp = questions.get(i).getQuery();
-      int intTemp = difficulties.get(i);
       questions.set(i, questions.get(index));
-      difficulties.set(i, difficulties.get(index));
       questions.set(index, questions.get(i));
-      difficulties.set(index, difficulties.get(i));
     }
     
   }
   
-
 }
