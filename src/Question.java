@@ -8,7 +8,13 @@ public class Question {
         difficulty = d;
         catagory = "none";
     }
+
     public Question(String q, int d, String c){
+        query = q;
+        difficulty = d;
+        catagory = c;
+    }
+    public Question(String q, int d, String c, String ){
         query = q;
         difficulty = d;
         catagory = c;
